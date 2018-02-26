@@ -2,24 +2,7 @@
 <html lang="en">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-MBCBVQS');
-  </script>
-  <!-- End Google Tag Manager -->
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,10 +15,6 @@
   <title>Childrens spending quiz</title>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Instead of forms, make 1 div and append different questions -->
     <div class="container">
@@ -92,7 +71,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var move;
 		
 		
-		d3.select(".btn2").on("click",counter)
+d3.select(".btn2").on("click",counter)
 
 if(parseInt(d3.select(".imgheader").style("width"))< 611){
 	d3.select(".imgheader").append("img")
@@ -110,6 +89,7 @@ if(parseInt(d3.select(".imgheader").style("width"))< 611){
                 .attr("height", parseInt(d3.select(".imgheader").style("width"))/800*336);
 }
 
+	//Counter for question numbers
         function counter() {
 			clicks += 1;
           document.getElementById("number").innerHTML = clicks;
@@ -179,13 +159,6 @@ if(parseInt(d3.select(".imgheader").style("width"))< 611){
 			
           if (dvc.essential.questions[+question].type == "multiple") {
 			  
-		dataLayer.push({
-            'event': 'ChildSpendingQuiz',
-            'questionTxt': dvc.essential.questions[question].question,
-			'questionNumber': 1+question,
-			'inputType': dvc.essential.questions[question].type,
-            'answerValue':guessedValue
-          })
             //If type is multiple, run the multiple choice code
 			if ("#form"+question === "#form4"){
 			  d3.select("#form"+question)
@@ -197,7 +170,7 @@ if(parseInt(d3.select(".imgheader").style("width"))< 611){
 
        
 			
-			if ($('#form' + question + " input:checked").next().text() == dvc.essential.questions[+question].correctAnswer) {
+if ($('#form' + question + " input:checked").next().text() == dvc.essential.questions[+question].correctAnswer) {
             	
 			  d3.selectAll(".answers").selectAll("*").remove();
 				d3.select("#answers")
